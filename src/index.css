@@ -178,3 +178,23 @@ cart-items li{
 .total > div {
   font-size: 2rem;
 }
+form{
+  width: 100%;
+}
+
+.form-container {
+  padding: 0;
+  list-style-type: none;
+  width: 100%
+}
+
+.form-container li{
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+}
+
+input{
+  padding: 1rem;
+  border: .1rem #c0c0c0 solid;
+}
