@@ -1,3 +1,6 @@
 export default function formatCurrency(num) {
-    return "$" + Number(num.toFixed(1)).toLocaleString() + " " ;
+    if (num !== undefined) {
+
+        return "$" + Number(num.toFixed(1)).toLocaleString() + " " ;
+    }
 }
