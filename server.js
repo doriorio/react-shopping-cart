@@ -6,6 +6,7 @@ const shortid = require("shortid");
 const app = express();
 app.use(bodyParser.json());
 
+mongoose.set('useFindAndModify', false);
 mongoose.connect("mongodb://localhost/react-shopping-cart-db", {
   useNewUrlParser: true,
   useCreateIndex: true,
@@ -38,6 +39,21 @@ app.post("/api/products", async (req, res) => {
 app.delete("/api/products/:id", async (req, res) => {
   const deletedProduct = await Product.findByIdAndDelete(req.params.id);
   res.send(deletedProduct);
+});
+
+app.get("/api/products/:id", async(req, res) => {
+  var editProduct = await Product.findOneAndUpdate(
+    {_id: req.params.id}, 
+    {
+      title: req.params.title,
+      description: req.params.description,
+      image: req.params.image,
+      price: req.params.price,
+      availableSizes: [req.params.availableSizes]
+    }
+    );
+    console.log(req.params.id);
+  res.send(editProduct);
 });
 
 const Order = mongoose.model("order", new mongoose.Schema({
