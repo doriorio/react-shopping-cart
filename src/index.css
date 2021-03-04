@@ -16,6 +16,7 @@ button,
 textarea {
   font-family: Montserrat, Helvetica, Arial, sans-serif;
   font-size: 1.6rem;
+  
 }
 
 .grid-container {
@@ -113,9 +114,26 @@ footer {
   border: 0.1rem #c0c0c0 solid;
   background-color: #f0f0f0;
   cursor: pointer;
+  width: 100px;
 }
+
+.button.alert {
+  background-color: #dc0e0e;
+  color: #f0f0f0;
+}
+.button.alert:hover:before {
+  content: "Warning: This will remove all of this item from your cart";
+}
+
+.button.alert:hover span {
+  display:none
+}
+
+
+
 .button:hover {
   border: 0.1rem #808080 solid;
+
 }
 .button.primary {
   background-color: #f0c040;
